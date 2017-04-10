@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
+import reactiveObject, { isSupported } from 'meteor-reactive-object';
 import Tracker from './tracker';
-import reactiveObject from './reactiveObject';
 
-const proxiesSupported = typeof Proxy !== 'undefined';
+const proxiesSupported = isSupported();
 
 export default (reactiveFn, compareProp) => Comp => class Connector extends PureComponent {
   constructor(props) {

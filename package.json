@@ -61,6 +61,7 @@
     "eslint-plugin-react": "6.10.3"
   },
   "dependencies": {
-    "meteor-globals": "1.0.1"
+    "meteor-globals": "1.0.1",
+    "meteor-reactive-object": "1.0.0"
   }
 }
