@@ -1,5 +1,5 @@
 {
-  "name": "@teamgrid/react-tracker-connect",
+  "name": "react-tracker-connect",
   "version": "1.0.0",
   "description": "react component decorator to connect reactive data with meteor tracker",
   "main": "dist/index.js",
