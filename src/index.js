@@ -2,19 +2,24 @@ import React, { PureComponent } from 'react';
 import Tracker from './tracker';
 import reactiveObject from './reactiveObject';
 
+const proxiesSupported = typeof Proxy !== 'undefined';
+
 export default (reactiveFn, compareProp) => Comp => class Connector extends PureComponent {
   constructor(props) {
     super();
     this.state = {};
-    this.reactiveProps = reactiveObject(Object.assign({}, props), compareProp);
+    // IE11 support
+    this.reactiveProps = proxiesSupported
+      ? reactiveObject(Object.assign({}, props), compareProp)
+      : props;
   }
   componentWillMount() {
     this.computation = Tracker.nonreactive(() => Tracker.autorun(() => this.updateProps()));
   }
   componentWillReceiveProps(props) {
     // IE11 support
-    if (typeof Proxy === 'undefined') {
-      this.updateProps();
+    if (!proxiesSupported) {
+      this.updateProps(props);
       return;
     }
 
@@ -36,8 +41,10 @@ export default (reactiveFn, compareProp) => Comp => class Connector extends Pure
   componentWillUnmount() {
     this.computation.stop();
   }
-  updateProps() {
-    this.setState({ props: reactiveFn(this.reactiveProps) });
+  updateProps(props) {
+    this.setState({
+      props: reactiveFn(proxiesSupported ? this.reactiveProps : (props || this.props)),
+    });
   }
   render() {
     return <Comp {...this.props} {...this.state.props} />;
