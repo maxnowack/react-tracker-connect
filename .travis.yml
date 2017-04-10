@@ -18,4 +18,5 @@ before_install:
 
 script:
   - (cd tests && meteor npm install)
+  - npm run lint
   - npm test
