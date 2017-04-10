@@ -1,2 +1,2 @@
-# meteor-npm-package [![Build Status](https://travis-ci.org/maxnowack/meteor-npm-package.svg?branch=master)](https://travis-ci.org/maxnowack/meteor-npm-package)
-Boilerplate for building/testing npm packages with meteor dependencies
+# react-tracker-connect [![Build Status](https://travis-ci.org/maxnowack/react-tracker-connect.svg?branch=master)](https://travis-ci.org/maxnowack/react-tracker-connect)
+Performant way to connect reactive data from meteor with react components
