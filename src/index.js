@@ -23,12 +23,14 @@ export default (reactiveFn, compareProp) => Comp => class Connector extends Pure
       return;
     }
 
-    Object.keys(props).forEach((key) => {
-      if (this.reactiveProps[key] === props[key]) return;
-      this.reactiveProps[key] = props[key];
-    });
-    Object.keys(this.props).filter(key => !(key in props)).forEach((key) => {
-      delete this.reactiveProps[key];
+    Tracker.nonreactive(() => {
+      Object.keys(props).forEach((key) => {
+        if (this.reactiveProps[key] === props[key]) return;
+        this.reactiveProps[key] = props[key];
+      });
+      Object.keys(this.props).filter(key => !(key in props)).forEach((key) => {
+        delete this.reactiveProps[key];
+      });
     });
     if (!Tracker.active) {
       try {
