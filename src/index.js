@@ -4,13 +4,13 @@ import Tracker from './tracker';
 
 const proxiesSupported = isSupported();
 
-export default (reactiveFn, compareProp) => Comp => class Connector extends PureComponent {
+export default (reactiveFn, options) => Comp => class Connector extends PureComponent {
   constructor(props) {
     super();
     this.state = {};
     // IE11 support
     this.reactiveProps = proxiesSupported
-      ? reactiveObject(Object.assign({}, props), compareProp)
+      ? reactiveObject(Object.assign({}, props), options)
       : props;
   }
   componentWillMount() {

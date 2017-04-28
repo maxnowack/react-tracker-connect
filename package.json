@@ -62,6 +62,6 @@
   },
   "dependencies": {
     "meteor-globals": "1.1.1",
-    "meteor-reactive-object": "1.0.2"
+    "meteor-reactive-object": "1.1.0"
   }
 }

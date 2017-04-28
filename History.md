@@ -1,3 +1,6 @@
+## vNEXT
+* enable passing props to reactive-object
+
 ## v1.0.4, 2017-04-28
 * update `meteor-reactive-object` to fix iterating over arrays
 
