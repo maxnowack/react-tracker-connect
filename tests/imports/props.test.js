@@ -98,6 +98,38 @@ if (Meteor.isClient) {
 
       item.unmount();
     });
+
+    it('should be able to iterate over array', () => {
+      const reactive = new ReactiveVar(1);
+
+      @connect(({ arr }) => ({ value: arr.map(num => num * reactive.get()) }))
+      class Foo extends Component {
+        constructor() {
+          super();
+          this.renderCount = 0;
+        }
+        render() {
+          this.renderCount += 1;
+          return (
+            <div>
+              <div className="renderCount">{ this.renderCount }</div>
+              <div className="props">{ JSON.stringify(this.props || {}) }</div>
+            </div>
+          );
+        }
+      }
+
+      let props;
+      const item = mount(<Foo arr={[1, 2, 3]} />);
+      props = JSON.parse(item.find('.props').text());
+      chai.assert.equal(props.value.length, 3);
+
+      item.setProps({ arr: [1, 2, 3, 4] });
+      props = JSON.parse(item.find('.props').text());
+      chai.assert.equal(props.value.length, 4);
+
+      item.unmount();
+    });
   });
 } else {
   // server side tests
