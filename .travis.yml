@@ -13,7 +13,7 @@ install:
   - npm install
 
 before_install:
-  - curl https://install.meteor.com/?release=1.4.4.2-rc.1 | /bin/sh
+  - curl https://install.meteor.com/?release=1.4.4.2 | /bin/sh
   - export PATH="$HOME/.meteor:$PATH"
 
 script:
