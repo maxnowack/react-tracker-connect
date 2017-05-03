@@ -45,6 +45,19 @@ export default connect((props) => ({
 }))(Stateless)
 ````
 
+### Options
+The `connect` decorator takes 2 arguments. The first argument is a function which gets called with the current props object as the first parameter. This function runs reactive, the return value will be merged with the current props and passed to your component.
+You can pass `options` via the second argument and the following signature:
+````js
+{
+  // Optional. A function of two arguments, called on the old value and the new value whenever a prop was updated.
+  compare: (a, b) => a === b,
+
+  // Optional. An array with the props which will be passed to the reactive function.
+  // This option can be used to finetune, which props should be checked if they've changed.
+  allowedProps: ['reactive'],
+}
+````
 
 ## License
 Licensed under MIT license. Copyright (c) 2017 Max Nowack

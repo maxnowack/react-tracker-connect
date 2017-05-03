@@ -1,3 +1,6 @@
+## vNEXT
+* implement option `allowedProps`, to finetune prop checking in reactive object.
+
 ## v1.0.5, 2017-04-28
 * enable passing props to reactive-object
 
