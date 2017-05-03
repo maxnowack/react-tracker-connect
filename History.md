@@ -1,4 +1,6 @@
 ## vNEXT
+
+## v1.1.0, 2017-05-03
 * implement option `allowedProps`, to finetune prop checking in reactive object.
 
 ## v1.0.5, 2017-04-28
