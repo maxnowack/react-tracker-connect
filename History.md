@@ -1,4 +1,5 @@
 ## vNEXT
+* better checking if flush is active in meteor 1.4.4.2
 
 ## v1.1.0, 2017-05-03
 * implement option `allowedProps`, to finetune prop checking in reactive object.
