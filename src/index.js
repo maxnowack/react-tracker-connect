@@ -46,7 +46,8 @@ export default (reactiveFn, opts) => Comp => class Connector extends PureCompone
         delete this.reactiveProps[key];
       });
     });
-    if (!Tracker.inFlush()) {
+    const isInFlush = Tracker.inFlush ? Tracker.inFlush() : Tracker.active;
+    if (!isInFlush) {
       try {
         Tracker.flush();
       } catch (err) {
