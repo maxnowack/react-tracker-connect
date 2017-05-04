@@ -1,4 +1,6 @@
 ## vNEXT
+
+## v1.1.1 2017-05-04
 * better checking if flush is active in meteor 1.4.4.2
 
 ## v1.1.0, 2017-05-03
