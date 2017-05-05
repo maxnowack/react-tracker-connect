@@ -44,6 +44,42 @@ if (Meteor.isClient) {
       item.unmount();
       chai.assert.equal(reactive._numListeners(), 0);
     });
+    it('should not rerun on unmount', () => {
+      const reactive = new ReactiveVar('aaa');
+
+      let runs = 0;
+      @connect(() => {
+        runs += 1;
+        return { reactive: reactive.get() }
+      })
+      class Foo extends Component {
+        constructor() {
+          super();
+          this.renderCount = 0;
+        }
+        render() {
+          this.renderCount += 1;
+          return (
+            <div>
+              <div className="renderCount">{ this.renderCount }</div>
+              <div className="props">{ JSON.stringify(this.props || {}) }</div>
+            </div>
+          );
+        }
+      }
+
+      const item = mount(<Foo test />);
+      chai.assert.equal(runs, 1);
+
+      reactive.set('bbb');
+      Tracker.flush({ _throwFirstError: true });
+      chai.assert.equal(runs, 2);
+
+      chai.assert.equal(reactive._numListeners(), 1);
+      item.unmount();
+      chai.assert.equal(reactive._numListeners(), 0);
+      chai.assert.equal(runs, 2);
+    });
   });
 } else {
   // server side tests
