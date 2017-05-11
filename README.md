@@ -1,5 +1,5 @@
 # react-tracker-connect [![Build Status](https://travis-ci.org/maxnowack/react-tracker-connect.svg?branch=master)](https://travis-ci.org/maxnowack/react-tracker-connect)
-Performant way to connect reactive data from meteor with react components
+Performant way to connect reactive data from meteor with react components (see [#13](https://github.com/maxnowack/react-tracker-connect/issues/13))
 
 ## Installation
 ````bash
