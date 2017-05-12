@@ -22,6 +22,12 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "meteor",
+    "react",
+    "reactivity",
+    "tracker"
+  ],
   "babel": {
     "plugins": [
       "transform-object-rest-spread"
