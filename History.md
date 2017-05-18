@@ -1,4 +1,6 @@
 ## vNEXT
+
+## v1.1.3 2017-05-18
 * check computing state before flushing
 
 ## v1.1.2 2017-05-18
