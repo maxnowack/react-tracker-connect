@@ -1,4 +1,5 @@
 ## vNEXT
+* check computing state before flushing
 
 ## v1.1.2 2017-05-18
 * flush inside Tracker.nonreactive

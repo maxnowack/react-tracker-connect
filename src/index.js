@@ -34,6 +34,7 @@ export default (reactiveFn, opts) => Comp => class Connector extends PureCompone
       return;
     }
 
+    const inCompute = !!Tracker.currentComputation;
     Tracker.nonreactive(() => {
       Object.keys(props).forEach((key) => {
         if (!this.isPropReactive(key)) return;
@@ -46,7 +47,7 @@ export default (reactiveFn, opts) => Comp => class Connector extends PureCompone
         delete this.reactiveProps[key];
       });
       const isInFlush = Tracker.inFlush ? Tracker.inFlush() : Tracker.active;
-      if (!isInFlush) {
+      if (!isInFlush && !inCompute) {
         try {
           Tracker.flush();
         } catch (err) {
