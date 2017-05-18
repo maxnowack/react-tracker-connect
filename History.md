@@ -1,4 +1,5 @@
 ## vNEXT
+* flush inside Tracker.nonreactive
 
 ## v1.1.1 2017-05-04
 * better checking if flush is active in meteor 1.4.4.2
