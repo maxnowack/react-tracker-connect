@@ -1,5 +1,8 @@
 ## vNEXT
 
+## v1.1.4 2017-06-06
+* update dependencies
+
 ## v1.1.3 2017-05-18
 * check computing state before flushing
 
