@@ -4,8 +4,8 @@
   "description": "react component decorator to connect reactive data with meteor tracker",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "./node_modules/.bin/babel src -d dist",
-    "lint": "./node_modules/.bin/eslint src",
+    "prepublish": "babel src -d dist",
+    "lint": "eslint src",
     "copy": "npm link && cd tests && npm link react-tracker-connect",
     "test": "npm run copy && cd tests && TEST_BROWSER_DRIVER=nightmare meteor test -p 3100 --once --driver-package dispatch:mocha"
   },
@@ -73,6 +73,7 @@
   "dependencies": {
     "lodash.pick": "^4.4.0",
     "meteor-globals": "1.1.1",
-    "meteor-reactive-object": "1.1.1"
+    "meteor-reactive-object": "1.1.1",
+    "react": "^15.3.0 || ^16.0.0-alpha"
   }
 }
