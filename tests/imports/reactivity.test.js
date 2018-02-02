@@ -1,11 +1,14 @@
 /* global describe it */
 import React, { Component } from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import connect from 'react-tracker-connect';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { chai } from 'meteor/practicalmeteor:chai';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 if (Meteor.isClient) {
   // client side tests
