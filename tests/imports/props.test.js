@@ -133,6 +133,45 @@ if (Meteor.isClient) {
 
       item.unmount();
     });
+
+    it('should unset a prop', () => {
+      const reactive = new ReactiveVar(0);
+
+      @connect(() => {
+        const value = reactive.get()
+        if (!value) return { loading: true }
+        return { value };
+      })
+      class Foo extends Component {
+        constructor() {
+          super();
+          this.renderCount = 0;
+        }
+        render() {
+          this.renderCount += 1;
+          return (
+            <div>
+              <div className="renderCount">{ this.renderCount }</div>
+              <div className="props">{ JSON.stringify(this.props || {}) }</div>
+            </div>
+          );
+        }
+      }
+
+      let props;
+      const item = mount(<Foo />);
+      props = JSON.parse(item.find('.props').text());
+      chai.assert.isUndefined(props.value);
+      chai.assert.equal(props.loading, true);
+
+      reactive.set(10);
+      Tracker.flush({ _throwFirstError: true });
+      props = JSON.parse(item.find('.props').text());
+      chai.assert.equal(props.value, 10);
+      chai.assert.isUndefined(props.loading);
+
+      item.unmount();
+    });
   });
 } else {
   // server side tests
