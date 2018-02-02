@@ -4,7 +4,7 @@
   "description": "react component decorator to connect reactive data with meteor tracker",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "babel src -d dist",
+    "prepare": "babel src -d dist",
     "lint": "eslint src",
     "copy": "npm link && cd tests && npm link react-tracker-connect",
     "test": "npm run copy && cd tests && TEST_BROWSER_DRIVER=nightmare meteor test -p 3100 --once --driver-package dispatch:mocha"
@@ -55,25 +55,25 @@
     }
   },
   "peerDependencies": {
-    "react": "^15.3.0 || ^16.0.0-alpha"
+    "react": "^16.2.0"
   },
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "6.25.0",
-    "babel-eslint": "7.2.3",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "6.24.1",
-    "eslint": "4.3.0",
-    "eslint-config-airbnb": "15.1.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "7.1.0"
+    "eslint": "4.16.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.6.1"
   },
   "dependencies": {
     "lodash.pick": "^4.4.0",
-    "meteor-globals": "1.1.1",
-    "meteor-reactive-object": "1.1.1",
-    "react": "^15.3.0 || ^16.0.0-alpha"
+    "meteor-globals": "^1.1.2",
+    "meteor-reactive-object": "^1.1.1",
+    "react": "^16.2.0"
   }
 }
