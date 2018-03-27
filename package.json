@@ -71,6 +71,7 @@
     "eslint-plugin-react": "7.7.0"
   },
   "dependencies": {
+    "hoist-non-react-statics": "^2.5.0",
     "lodash.pick": "^4.4.0",
     "meteor-globals": "^1.1.2",
     "meteor-reactive-object": "^1.1.1",
