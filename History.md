@@ -1,5 +1,8 @@
 ## vNEXT
 
+## v1.1.5 2018-03-27
+* hoist statics
+
 ## v1.1.4 2017-06-06
 * update dependencies
 
