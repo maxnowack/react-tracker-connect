@@ -1,5 +1,9 @@
 ## vNEXT
 
+## v1.2.0 2019-04-29
+* allow overriding BaseComponent
+* update dependencies
+
 ## v1.1.5 2018-03-27
 * hoist statics
 
