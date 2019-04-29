@@ -7,13 +7,14 @@ import Tracker from './tracker';
 const proxiesSupported = isSupported();
 
 export default (reactiveFn, opts) => (Comp) => {
-  class Connector extends PureComponent {
+  const options = typeof opts === 'function' ? { compare: opts } : opts || {};
+  const { allowedProps, ...reactiveObjectOptions } = options;
+  const BaseComponent = options.BaseComponent || PureComponent;
+
+  class Connector extends BaseComponent {
     constructor(props) {
       super();
       this.state = {};
-
-      const options = typeof opts === 'function' ? { compare: opts } : opts || {};
-      const { allowedProps, ...reactiveObjectOptions } = options;
       this.allowedProps = allowedProps;
 
       const clonedProps = Object.assign({}, props);

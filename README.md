@@ -56,6 +56,10 @@ You can pass `options` via the second argument and the following signature:
   // Optional. An array with the props which will be passed to the reactive function.
   // This option can be used to finetune, which props should be checked if they've changed.
   allowedProps: ['reactive'],
+
+  // Optional, Base component which will be extended.
+  // Defaults to PureComponent
+  BaseComponent: React.Component,
 }
 ````
 
