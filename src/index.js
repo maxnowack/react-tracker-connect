@@ -27,9 +27,11 @@ export default (reactiveFn, opts) => (Comp) => {
         ? reactiveObject(initialProps, reactiveObjectOptions)
         : props;
     }
+
     componentWillMount() {
       this.computation = Tracker.nonreactive(() => Tracker.autorun(() => this.updateProps()));
     }
+
     componentWillReceiveProps(props) {
       // IE11 support
       if (!proxiesSupported) {
@@ -59,18 +61,22 @@ export default (reactiveFn, opts) => (Comp) => {
         }
       });
     }
+
     componentWillUnmount() {
       this.computation.stop();
     }
+
     isPropReactive(key) {
       if (!this.allowedProps) return true;
       return this.allowedProps.includes(key);
     }
+
     updateProps(props) {
       this.setState({
         props: reactiveFn(proxiesSupported ? this.reactiveProps : (props || this.props)),
       });
     }
+
     render() {
       return <Comp {...this.props} {...this.state.props} />;
     }
